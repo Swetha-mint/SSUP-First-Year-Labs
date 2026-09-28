@@ -1,1 +1,269 @@
+a, b, c = 12, 7, 19
+if a <= b and a <= c: print("Smallest:", a)
+elif b <= a and b <= c: print("Smallest:", b)
+else: print("Smallest:", c)
+a, b = 15, 23
+print("Smallest:", a if a < b else b)
+n = 8
+print("Even" if n % 2 == 0 else "Odd")
+# Inputs (Adjust these variables to test different criteria)
+score = 85
+penalty = False
 
+# Step 1: Out of bounds check
+if score < 0 or score > 100:
+    print("invalid score range")
+
+# Step 2: Distinction check
+elif score > 90:
+    print("grade A with distinction")
+
+# Step 3: Honours check (Score between 80 and 90, and penalty is False)
+elif score >= 80 and score <= 90 and penalty == False:
+    print("grade B with honours")
+
+# Step 4: Fallback for all other valid cases
+else:
+    print("Nominal Pass")
+# Input variable
+day = "Sunday"
+
+# Standardize text to lowercase to prevent case sensitivity issues
+day_lower = day.lower()
+
+# Using Structural Pattern Matching
+match day_lower:
+    case "saturday" | "sunday":
+        print("Weekend")
+    case "monday" | "tuesday" | "wednesday" | "thursday" | "friday":
+        print("Weekday")
+    case _:
+        print("Invalid day name entered")
+print("Odd numbers:")
+for num in range(10):
+    if num % 2 == 0:
+        continue  # Skip even numbers
+    print(num, end=" ")
+print()
+print("Loop with break:")
+for num in range(1, 6):
+    if num == 4:
+        break  # Exit loop completely when num equals 4
+    print(num, end=" ")
+print()
+print("Loop with pass:")
+for num in range(1, 4):
+    if num == 2:
+        pass  # Placeholder; does nothing
+    print(num, end=" ")
+print()
+import math
+
+# Points defined as (x1, y1) and (x2, y2)
+x1, y1 = 1, 2
+x2, y2 = 4, 6
+
+# Distance formula: sqrt((x2-x1)^2 + (y2-y1)^2)
+distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+print("Distance:", round(distance, 2))
+import math
+
+num1 = 36
+num2 = 60
+
+gcd_val = math.gcd(num1, num2)
+print(f"GCD of {num1} and {num2} is:", gcd_val)
+base = 5
+exponent = 3
+
+result = base ** exponent
+print(f"{base} raised to the power of {exponent} is:", result)
+def find_factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * find_factorial(n - 1)
+
+target_num = 5
+print(f"Factorial of {target_num} is:", find_factorial(target_num))
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(math.sqrt(n)) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+test_num = 17
+if is_prime(test_num):
+    print(f"{test_num} is a Prime number.")
+else:
+    print(f"{test_num} is not a Prime number.")
+rows = 5
+
+# Loop from 0 to 4
+for i in range(rows):
+    # Spaces increase (0, 1, 2, 3, 4) and Stars decrease (5, 4, 3, 2, 1)
+    print(" " * i + "*" * (rows - i))
+# --- Input Data (Modify variables to test different test cases) ---
+card_type = "exchange"         # Options: "exchange" or "new"
+recharge_amount = 250          # Must be >= 100 and a multiple of 50
+age = 68                       # Age of the passenger
+gender = "female"              # Options: "male", "female"
+biometric_confirmed = True     # True or False
+
+print("--- METRO NCMC SYSTEM TERMINAL ---")
+
+# 1. Card Issuance Fee Logic
+if card_type == "exchange":
+    fee = 149
+    issuance_name = "Card Exchange Replacement"
+elif card_type == "new":
+    fee = 199
+    issuance_name = "New Card Issuance"
+else:
+    fee = 0
+    issuance_name = "Unknown/Invalid Card Type"
+
+print(f"Action: {issuance_name} | Fee Charged: Rs. {fee}")
+
+
+# 2. Recharge Validation Logic
+if recharge_amount >= 100 and recharge_amount % 50 == 0:
+    print(f"Recharge Status: Success (Amount Rs. {recharge_amount} is valid)")
+    recharge_valid = True
+else:
+    print(f"Recharge Status: Failed (Must be >= Rs.100 and a multiple of Rs.50)")
+    recharge_valid = False
+
+
+# 3. Concession Verification Logic
+if not biometric_confirmed:
+    print("Concession Status: INELIGIBLE (Biometric verification failed!)")
+else:
+    # Nested logic for tier classification when biometrics match perfectly
+    if age >= 65:
+        tier = "Senior Citizen Concession"
+    elif gender.lower() == "female":
+        tier = "Women Concession Tier"
+    else:
+        tier = "Standard (Std) Tier"
+    print(f"Concession Status: Approved -> Tier Category: {tier}")
+# -------------------------------------------------------------------
+# UNIT 3 TOPICS USED: 
+# - Decision Control: if, if-else, Nested if-else
+# - Basic Loops: while, for loop
+# - Control Statements: break, continue, pass
+# - Functions: User Defined, Recursive, Inbuilt (print, input, int), Lambda
+# -------------------------------------------------------------------
+
+# 1. Lambda function (Unit 3) to style the game text headers
+format_header = lambda title: f"\n================= {title.upper()} ================="
+
+# 2. Recursive function (Unit 3) to compute system latency penalties
+# Simulates optimization layers where latency shrinks down recursively
+def calculate_latency_penalty(optimization_layers):
+    if optimization_layers <= 0:
+        return 50 # Base latency penalty in milliseconds
+    else:
+        # Each layer reduces leftover latency recursively
+        return 10 + calculate_latency_penalty(optimization_layers - 1) // 2
+
+# 3. User Defined Function (Unit 3) for the Digital Foundations Stage
+def run_vlsi_stage():
+    print(format_header("Stage 1: VLSI & Digital Foundations"))
+    print("Goal: Build the processing core and Toffoli quantum-inspired logic gates.")
+    
+    optimizations = 0
+    attempts = 3
+    
+    # While loop (Unit 3) for handling player attempts
+    while attempts > 0:
+        print(f"\nAttempts remaining: {attempts}")
+        print("Choose your RTL focus:")
+        print("1. Optimize ALU Core architecture")
+        print("2. Implement Toffoli gates for exploratory computing")
+        print("3. Skip optimization pass")
+        
+        choice = input("Enter choice (1-3): ")
+        
+        # Nested if-else decision control (Unit 3)
+        if choice == "1":
+            print("-> ALU core successfully streamlined!")
+            optimizations += 1
+        elif choice == "2":
+            print("-> Toffoli gates integrated securely!")
+            optimizations += 2
+            attempts -= 1  # Costly layout synthesis time
+        elif choice == "3":
+            print("-> Skipping layout pass.")
+            pass # Pass statement (Unit 3) acting as placeholder
+            break # Break statement (Unit 3) to exit loop early
+        else:
+            print("-> Invalid command code input. Try again.")
+            continue # Continue statement (Unit 3) to jump to next iteration
+            
+        attempts -= 1
+        
+    return optimizations
+
+# 4. User Defined Function (Unit 3) for the Sensory Processing Stage
+def run_sensor_stage():
+    print(format_header("Stage 2: Sensory Processing & Edge AI"))
+    print("Goal: Process sign-language gestural data locally under low latency.")
+    
+    total_score = 0
+    # For loop (Unit 3) to simulate a sequence of incoming gestural signals
+    for signal in range(1, 4):
+        print(f"\nProcessing real-world gesture batch #{signal}...")
+        print("Select processing layer boundary:")
+        print("A: Local Edge AI pipeline execution")
+        print("B: Cloud fallback relay routing")
+        
+        choice = input("Select gate (A/B): ")
+        
+        if choice.upper() == "A":
+            print("-> Clear signal interpreted locally with minimal bus delay!")
+            total_score += 15
+        elif choice.upper() == "B":
+            print("-> Alert! Cloud routing introduces high-latency side-channels.")
+            total_score += 5
+        else:
+            print("-> Signal dropped completely due to architectural mismatch.")
+            
+    return total_score
+
+# 5. Main Game Loop Function (Unit 3)
+def start_signalink_game():
+    print(format_header("Welcome to Signalink Terminal"))
+    print("Mission: Sense -> Process -> Communicate -> Assist")
+    print("Develop an open-source, low-latency assistive framework.")
+    
+    # Execute Stage 1
+    opt_layers = run_vlsi_stage()
+    
+    # Calculate performance using the recursive function
+    system_latency = calculate_latency_penalty(opt_layers)
+    print(f"\n[SYSTEM PROFILE] Component architecture latency: {system_latency}ms")
+    
+    # Conditional gate check
+    if system_latency > 35:
+        print("Warning: Processing core latency limits assistive communication!")
+    else:
+        print("Success: Ultra low-latency digital foundation established!")
+        
+    # Execute Stage 2
+    sensor_score = run_sensor_stage()
+    print(f"\n[FINAL SCORE] Data Pipeline Score: {sensor_score} points.")
+    
+    # Final game evaluation using nested if-else statements
+    if sensor_score >= 30:
+        if system_latency <= 35:
+            print("\n👑 VICTORY: You engineered the perfect Signalink assistive device!")
+        else:
+            print("\n⚠️ PARTIAL SUCCESS: System processes gestures well but core hardware lags.")
+    else:
+        print("\n❌ DEFEAT: The platform failed to handle real-world signals accurately.")
+
+# Trigger the main user-defined function to play
+start_signalink_game()
