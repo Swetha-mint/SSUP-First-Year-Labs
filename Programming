@@ -1,3 +1,4 @@
+# Practical 5:
 a, b, c = 12, 7, 19
 if a <= b and a <= c: print("Smallest:", a)
 elif b <= a and b <= c: print("Smallest:", b)
@@ -39,6 +40,7 @@ match day_lower:
         print("Weekday")
     case _:
         print("Invalid day name entered")
+# Practical 6
 print("Odd numbers:")
 for num in range(10):
     if num % 2 == 0:
@@ -105,6 +107,7 @@ rows = 5
 for i in range(rows):
     # Spaces increase (0, 1, 2, 3, 4) and Stars decrease (5, 4, 3, 2, 1)
     print(" " * i + "*" * (rows - i))
+#Skill - 04
 # --- Input Data (Modify variables to test different test cases) ---
 card_type = "exchange"         # Options: "exchange" or "new"
 recharge_amount = 250          # Must be >= 100 and a multiple of 50
@@ -149,6 +152,7 @@ else:
     else:
         tier = "Standard (Std) Tier"
     print(f"Concession Status: Approved -> Tier Category: {tier}")
+#skill - 05
 # -------------------------------------------------------------------
 # UNIT 3 TOPICS USED: 
 # - Decision Control: if, if-else, Nested if-else
